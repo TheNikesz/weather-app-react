@@ -1,30 +1,52 @@
-import { WiDayFog } from "weather-icons-react";
+import dateFormat from "dateformat";
+import Weather from "../models/Weather";
+import getWeatherIcon from "../utils/getWeatherIcon";
 
-export default function DailyWeatherList({ isNight }: { isNight: boolean }) {
+export default function DailyWeatherList({
+  weeklyWeather,
+  isNight,
+}: {
+  weeklyWeather: Weather[];
+  isNight: boolean;
+}) {
   return (
     <div className="daily-weather-list">
-      <DailyWeather isNight={isNight} />
-      <DailyWeather isNight={isNight} />
-      <DailyWeather isNight={isNight} />
-      <DailyWeather isNight={isNight} />
-      <DailyWeather isNight={isNight} />
-      <DailyWeather isNight={isNight} />
+      {weeklyWeather.slice(1).map((dailyWeather: Weather) => (
+        <DailyWeather
+          key={dailyWeather.date}
+          dailyWeather={dailyWeather}
+          isNight={isNight}
+        />
+      ))}
     </div>
   );
 }
 
-function DailyWeather({ isNight }: { isNight: boolean }) {
+function DailyWeather({
+  dailyWeather,
+  isNight,
+}: {
+  dailyWeather: Weather;
+  isNight: boolean;
+}) {
   return (
     <div
       className={
         isNight ? "daily-weather daily-weather-night" : "daily-weather"
       }
     >
-      <p>Thursday</p>
+      <p className="daily-weather-date">
+        {dateFormat(dailyWeather.date, "dddd")}
+      </p>
       <div className="daily-weather-icon">
-        <WiDayFog size={35} />
+        {getWeatherIcon(isNight, dailyWeather.weatherCode, 35)}
       </div>
-      <p>13°C</p>
+      <p>
+        {isNight
+          ? dailyWeather.minTemperature.toFixed()
+          : dailyWeather.maxTemperature.toFixed()}
+        °C
+      </p>
     </div>
   );
 }

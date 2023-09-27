@@ -122,8 +122,12 @@ button:focus-visible {
   border-radius: 20px;
 }
 
+.daily-weather-date {
+  min-width: 5em;
+}
+
 .daily-weather-icon {
-  margin-left: -2.2em;
+  margin-left: -2.5em;
 }
 
 .daily-weather-night {
