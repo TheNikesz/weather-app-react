@@ -177,12 +177,15 @@ button:focus-visible {
   border-radius: 10px 0 0 10px;
   height: 2.9em;
   border-color: #ededed !important;
+  color: #020202 !important;
 }
 
+.city-search-night .MuiOutlinedInput-root,
 .city-search-night .MuiOutlinedInput-root fieldset,
 .city-search-night .MuiOutlinedInput-root:hover fieldset,
 .city-search-night .MuiOutlinedInput-root.Mui-focused fieldset {
   border-color: #a3b4d1 !important;
+  color: #fefefe !important;
 }
 
 .city-search .MuiInputLabel-root {

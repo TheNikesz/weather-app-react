@@ -8,15 +8,20 @@ import Weather from "./models/Weather";
 
 function App() {
   const [isNight, setIsNight] = useState<boolean>(false);
+  const [city, setCity] = useState<string>("Warsaw");
   const [weatherForecast, setWeatherForecast] = useState<Weather[]>([]);
 
   function handleChange(): void {
     setIsNight((prevIsNight: boolean) => !prevIsNight);
   }
 
+  function handleClick(citySearch: string) {
+    setCity(citySearch);
+  }
+
   useEffect(() => {
     fetch(
-      "https://geocoding-api.open-meteo.com/v1/search?name=Warsaw&count=1&language=en&format=json"
+      `https://geocoding-api.open-meteo.com/v1/search?name=${city}&count=1&language=en&format=json`
     )
       .then((response) => response.json())
       .then((geocodingData) => {
@@ -40,12 +45,12 @@ function App() {
             setWeatherForecast(weather);
           });
       });
-  }, []);
+  }, [city]);
 
   if (weatherForecast.length > 0) {
     return (
       <div className={isNight ? "app app-night" : "app"}>
-        <CitySearch isNight={isNight} />
+        <CitySearch isNight={isNight} handleClick={handleClick} />
         <CityAndDate
           city={weatherForecast[0].city}
           date={weatherForecast[0].date}
@@ -57,7 +62,6 @@ function App() {
       </div>
     );
   }
-
 }
 
 export default App;
