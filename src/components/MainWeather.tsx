@@ -22,7 +22,7 @@ export default function MainWeather({
           isNight ? "vertical-spacer vertical-spacer-night" : "vertical-spacer"
         }
       ></div>
-      <h1>
+      <h1 className="main-weather-temperature">
         {isNight
           ? dailyWeather.minTemperature.toFixed()
           : dailyWeather.maxTemperature.toFixed()}
