@@ -1,27 +1,21 @@
-# React + TypeScript + Vite
+# Weather app
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Weather application built in React.
 
-Currently, two official plugins are available:
+## Technologies
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+* React: 18.2.0
+* TypeScript: 5.0.2
+* Vite: 4.4.5
+* Material UI: 5.14.10
 
-## Expanding the ESLint configuration
+## Features
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+* select the city from the search
+* check the day weather forecast for the next week for the selected city
+* check the night weather forecast for the next week for the selected city
 
-- Configure the top-level `parserOptions` property like this:
+## Illustrations
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
-```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+![Main page of the application](https://github.com/TheNikesz/weather-app-react/blob/main/docs/main.png)
+![Main page of the application with night weather](https://github.com/TheNikesz/weather-app-react/blob/main/docs/night.png)
